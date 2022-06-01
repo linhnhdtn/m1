@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <order_status translate="title" module="integration">
+                <model>integration/api</model>
+                <title>Integration Order</title>
+                <acl>integration/order</acl>
+                <methods>
+                    <update translate="title" module="integration">
+                        <title>Update Status Order</title>
+                        <method>update</method>
+                        <acl>integration/order/update</acl>
+                    </update>
+                </methods>
+            </order_status>
+        </resources>
+        <resources_alias>
+            <drinko_integration>order_status</drinko_integration>
+        </resources_alias>
+        <v2>
+            <resources_function_prefix>
+                <drinko_integration>orderStatus</drinko_integration>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <integration>
+                    <title>Integration</title>
+                    <order translate="title" module="integration">
+                        <title>Order</title>
+                        <update translate="title" module="integration">
+                            <title>Update</title>
+                        </update>
+                    </order>
+                </integration>
+            </resources>
+        </acl>
+    </api>
+</config>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Drinko_Integration>
+            <version>0.1.0</version>
+        </Drinko_Integration>
+    </modules>
+    <global>
+        <models>
+            <integration>
+                <class>Drinko_Integration_Model</class>
+            </integration>
+        </models>
+    </global>
+
+    <frontend>
+        <routers>
+            <integration>
+                <use>standard</use>
+                <args>
+                    <module>Drinko_Integration</module>
+                    <frontName>integration</frontName>
+                </args>
+            </integration>
+        </routers>
+    </frontend>
+
+    <crontab>
+        <jobs>
+            <integration_update_stock_product>
+                <schedule>
+                    <cron_expr>0 0 * * mon</cron_expr>
+                </schedule>
+                <run>
+                    <model>integration/observer::setStock</model>
+                </run>
+            </integration_update_stock_product>
+        </jobs>
+    </crontab>
+</config>

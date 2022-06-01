@@ -11,6 +11,11 @@
                 <class>Drinko_Integration_Model</class>
             </integration>
         </models>
+        <helpers>
+            <integration>
+                <class>Drinko_Integration_Helper</class>
+            </integration>
+        </helpers>
     </global>
 
     <frontend>
@@ -37,4 +42,4 @@
             </integration_update_stock_product>
         </jobs>
     </crontab>
-</config>
+</confi

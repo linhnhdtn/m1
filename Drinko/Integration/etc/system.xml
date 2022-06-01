@@ -1,21 +1,27 @@
-<?xml version='1.0'?>
-<config>
+<?xml version="1.0" encoding="UTF-8"?>
+<config>>
     <tabs>
-        <catalog>
-            <sort_order>1</sort_order>
-        </catalog>
+        <integration module="integration">
+            <label>Integration</label>
+            <sort_order>100</sort_order>
+        </integration>
     </tabs>
     <sections>
-        <catalog>
-            <label>Integration</label>
+        <integration module="integration">
+            <label>Settings</label>
+            <tab>integration</tab>
+            <sort_order>0</sort_order>
+            <show_in_store>1</show_in_store>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
             <groups>
-                <integration translate="label">
-                    <label>Integration</label>
+                <api module="integration">
+                    <label>Api</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>100</sort_order>
+                    <sort_order>10</sort_order>
+                    <show_in_store>1</show_in_store>
                     <show_in_default>1</show_in_default>
-                    <show_in_website>0</show_in_website>
-                    <show_in_store>0</show_in_store>
+                    <show_in_website>1</show_in_website>
                     <fields>
                         <url translate="label comment">
                             <label>Url</label>
@@ -58,8 +64,8 @@
                             <show_in_store>0</show_in_store>
                         </endpoint_token>
                     </fields>
-                </integration>
+                </api>
             </groups>
-        </catalog>
+        </integration>
     </sections>
 </config>

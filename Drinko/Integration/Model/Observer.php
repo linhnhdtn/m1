@@ -4,11 +4,11 @@ class Drinko_Integration_Model_Observer extends Varien_Event_Observer
 {
     public function setStock()
     {
-        $baseUrl = Mage::getStoreConfig('catalog/integration/url');
-        $user = Mage::getStoreConfig('catalog/integration/user');
-        $password = Mage::getStoreConfig('catalog/integration/password');
-        $endPoint = Mage::getStoreConfig('catalog/integration/endpoint');
-        $endPointToken = Mage::getStoreConfig('catalog/integration/endpoint_token');
+        $baseUrl = Mage::getStoreConfig('integration/api/url');
+        $user = Mage::getStoreConfig('integration/api/user');
+        $password = Mage::getStoreConfig('integration/api/password');
+        $endPoint = Mage::getStoreConfig('integration/api/endpoint');
+        $endPointToken = Mage::getStoreConfig('integration/api/endpoint_token');
 
         $userData = array("username" => $user, "password" => $password);
         $ch = curl_init($baseUrl . $endPointToken);

@@ -34,7 +34,7 @@
         <jobs>
             <integration_update_stock_product>
                 <schedule>
-                    <cron_expr>0 0 * * mon</cron_expr>
+                    <cron_expr>0 12 * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>integration/observer::setStock</model>

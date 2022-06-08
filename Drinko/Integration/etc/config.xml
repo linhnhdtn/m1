@@ -37,7 +37,7 @@
                     <cron_expr>0 12 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>integration/observer::setStock</model>
+                    <model>integration/observer::syncStock</model>
                 </run>
             </integration_update_stock_product>
         </jobs>

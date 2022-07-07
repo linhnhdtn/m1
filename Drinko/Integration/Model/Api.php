@@ -14,7 +14,23 @@ class Drinko_Integration_Model_Api extends Mage_Api_Model_Resource_Abstract
             try {
                 $order->setStatus($item->status, true);
                 $order->save();
+                
+                // create invoice capture
+                if ($item->status == "packing_finished"){
+                    $capture = Mage_Sales_Model_Order_Invoice::CAPTURE_ONLINE;
+                    /** @var Mage_Sales_Model_Order_Invoice $invoice */
+                    $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
+                    $invoice->setRequestedCaptureCase($capture);
+                    $invoice->register();
 
+                    $transaction = Mage::getModel('core/resource_transaction')
+                        ->addObject($invoice)
+                        ->addObject($invoice->getOrder());
+
+                    $transaction->save();
+                }
+                //
+                
                 Mage::getSingleton('integration/order_status_notifier')->sendEmail($order);
 
             } catch (Mage_Core_Exception $e) {

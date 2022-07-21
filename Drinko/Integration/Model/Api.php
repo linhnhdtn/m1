@@ -12,9 +12,6 @@ class Drinko_Integration_Model_Api extends Mage_Api_Model_Resource_Abstract
         foreach ($orderData as $item) {           
            try {
            	$order = $this->_initOrder($item->increment_id);
-                $order->setStatus($item->status, true);
-                $order->save();               
-                
                 if (($item->status == "packing_finished") && ($order->getCustomerEmail() == "anders@aubrey.se")) {
                 
                 	// create invoice 
